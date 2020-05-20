@@ -10,3 +10,6 @@ class Book(models.Model):
     description = models.TextField(max_length=256, blank=True)
 
     price = models.DecimalField(default=0, decimal_places=2)
+
+    published = models.DateField()
+    
