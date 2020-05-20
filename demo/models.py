@@ -8,3 +8,5 @@ class Book(models.Model):
                              unique=True,
                              max_length=36)
     description = models.TextField(max_length=256, blank=True)
+
+    price = models.DecimalField(default=0, decimal_places=2)
