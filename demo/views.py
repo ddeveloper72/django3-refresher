@@ -8,13 +8,13 @@ from .models import Book
 
 class Another(View):
 
-    books = Book.objects.filter(is_published=True)
+    book = Book.objects.get(id=1)
     # setup empty string as output
-    output = ''
-    for book in books:
+    output = f"We have {book.title}  with ID {book.id}<br>"
+    # for book in books:
 
         # concatenate the strings together else last line overwrites 1st
-        output += f"We have {book.title}  with ID {book.id}<br>"
+        # output += f"We have {book.title}  with ID {book.id}<br>"
 
     def get(self, request):
         return HttpResponse(self.output)
