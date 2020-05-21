@@ -9,8 +9,12 @@ from .models import Book
 class Another(View):
 
     books = Book.objects.all()
+    # setup empty string as output
+    output  = ''
+    for book in books:
 
-    output = f"We have {len(books)}  books in our DB"
+        # concatenate the strings together else last line overwrites 1st
+        output += f"We have {book.title}  in our DB<br>"
 
     def get(self, request):
         return HttpResponse(self.output)
