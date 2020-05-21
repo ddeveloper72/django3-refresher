@@ -8,9 +8,9 @@ from .models import Book
 
 class Another(View):
 
-    books = Book.objects.all()
+    books = Book.objects.filter(is_published=True)
     # setup empty string as output
-    output  = ''
+    output = ''
     for book in books:
 
         # concatenate the strings together else last line overwrites 1st
