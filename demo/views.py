@@ -8,4 +8,4 @@ from django.shortcuts import render
 
 
 def first(request):
-    return render(request, 'first_temp.html')
+    return render(request, 'first_temp.html', {'data': 'this is data from the first view'})
