@@ -7,6 +7,16 @@
 </head>
 <body>
     <h1>This is my 1st template</h1>
+
+    <p>This is the raw array of Books DB rendered </p>
     <h2>{{ books }}</h2>
+
+    <h2>jinja used to query the array using a for loop</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+
 </body>
 </html>
