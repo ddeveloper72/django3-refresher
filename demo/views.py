@@ -14,7 +14,7 @@ class Another(View):
     for book in books:
 
         # concatenate the strings together else last line overwrites 1st
-        output += f"We have {book.title}  in our DB<br>"
+        output += f"We have {book.title}  with ID {book.id}<br>"
 
     def get(self, request):
         return HttpResponse(self.output)
