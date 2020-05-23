@@ -9,3 +9,4 @@ from .models import Book
 class BookAdmin(admin.ModelAdmin):
     # fields = ['title', 'description']
     list_display = ['title', 'title', 'price']
+    list_filter = ['published']
