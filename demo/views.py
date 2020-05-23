@@ -12,6 +12,5 @@ def first(request):
     books = Book.objects.all()
 
     return render(request, 'first_temp.html', {'books': books})
-
 # crate a builtin view using viewsets
 class BookViewSet(viewsets.MoedelViewSet):
