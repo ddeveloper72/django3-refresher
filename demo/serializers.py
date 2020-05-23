@@ -4,9 +4,9 @@ from .models import Book, BookNumber
 
 class BookNumberSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Book
+        model = BookNumber
         # specify the fields available from serializer
-        fields = ['id', 'isbn_10', 'isbn_13',]
+        fields = ['id', 'isbn_10', 'isbn_13']
 
 
 class BookSerializer(serializers.ModelSerializer):
