@@ -35,3 +35,7 @@ class Book(models.Model):
     # convert book object to user readable string in admin
     def __str__(self):
         return self.title
+
+class Character(models.Model):
+    name = models.CharField(max_length=30)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
