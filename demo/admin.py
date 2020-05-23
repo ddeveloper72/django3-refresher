@@ -5,8 +5,11 @@ from .models import Book
 
 # make specific fields available to book object in admin
 # using fields or list_display
+# adding a list_filter filter
+# adding a search_fields filter
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     # fields = ['title', 'description']
     list_display = ['title', 'title', 'price']
     list_filter = ['published']
+    search_fields = ['title']
