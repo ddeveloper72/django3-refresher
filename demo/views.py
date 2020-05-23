@@ -7,3 +7,4 @@ from .serializers import BookSerializer
 # crate a builtin view using viewsets
 class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer  # from class defined in serializer.py
+    queryset = Book.objects.all()
