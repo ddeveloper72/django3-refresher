@@ -12,4 +12,5 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     #  insure the TokenAuthentication is treated as a tuple by
     # adding a comma
-    authentication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,
+    permission_classes = ()
