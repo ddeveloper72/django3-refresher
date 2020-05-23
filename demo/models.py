@@ -38,4 +38,6 @@ class Book(models.Model):
 
 class Character(models.Model):
     name = models.CharField(max_length=30)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book,
+                             on_delete=models.CASCADE,
+                             related_name='characters')
