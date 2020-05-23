@@ -10,4 +10,6 @@ from rest_framework.authentication import TokenAuthentication
 class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer  # from class defined in serializer.py
     queryset = Book.objects.all()
-    authentication_classes =()
+    #  insure the TokenAuthentication is treated as a tuple by
+    # adding a comma
+    authentication_classes = (TokenAuthentication,)
