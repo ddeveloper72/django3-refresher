@@ -2,6 +2,7 @@ from rest_framework import viewsets
 from .serializers import BookSerializer
 from .models import Book
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -12,5 +13,5 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     #  insure the TokenAuthentication is treated as a tuple by
     # adding a comma
-    authentication_classes = (TokenAuthentication,
-    permission_classes = ()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
