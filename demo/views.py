@@ -9,3 +9,4 @@ from .models import Book
 class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer  # from class defined in serializer.py
     queryset = Book.objects.all()
+    authentication_classes =()
