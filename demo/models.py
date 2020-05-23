@@ -21,3 +21,7 @@ class Book(models.Model):
 
     cover = models.ImageField(upload_to='covers/',
                               blank=True)
+    
+    # convert book object to user readable string in admin
+    def __str__(self):
+        return self.title
