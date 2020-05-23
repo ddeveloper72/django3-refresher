@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 # crate router called books & pass the viewset from the views
 router.register('books', BookViewSet)
 
+# include the registered router into the url path
 urlpatterns = [
-    path('', include),
+    path('', include(router.urls)),
 ]
