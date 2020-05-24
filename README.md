@@ -132,6 +132,15 @@ To generated at token for the admin user, use the token menu to create a new tok
 
 ![Token added](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-3.png "A token is added to your name")
 
+Once you have a token copy it for use with the Headers key value fields in Postman.  See the screenshots below.
+
+![Un-Authenticated](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-4.png "token shown, but not enabled by Postman")
+
+![Authenticated](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-5.png "token enabled by Postman showing MiniBookSerializer view")
+
+![Authenticated view of specific book](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-6.png "specific book from BookSerializerview")
+
+
 
 ### Web browsable API
 
