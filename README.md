@@ -1,6 +1,7 @@
 # Django 3 Refresher - With Django Rest Framework
 
 ## Inspecting the current Django version, for future development
+(from a tutorial & with thanks with thanks to [Krystian Czekalski](https://www.udemy.com/user/krystian-czekalski/))
 
 In this Django Demonstration, the goal was to setup models that demonstrate the use of 1:1, 1:many and many:many relationships.  Then while working with the models, Django rest Framework is user to serialize the data from the models by means of view functions.  Postman was then used to visualize the data in JSON format.
 
@@ -25,7 +26,7 @@ from .models import Book, BookNumber, Character, Author
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     # fields = ['title', 'description']
-    list_display = ['title', 'title', 'price']
+    list_display = ['title', 'number', 'price']
     list_filter = ['published']
     search_fields = ['title', 'description']
 
@@ -107,10 +108,6 @@ Vary: Accept
             {
                 "id": 2,
                 "name": "Bilbo Baggins"
-            },
-            {
-                "id": 3,
-                "name": "Gandalf"
             }
         ],
         "authors": [
@@ -137,6 +134,10 @@ Vary: Accept
             {
                 "id": 1,
                 "name": "Frodo Baggins"
+            },
+            {
+                "id": 3,
+                "name": "Gandalf"
             }
         ],
         "authors": [
@@ -195,8 +196,9 @@ class MiniBookSerializer(serializers.ModelSerializer):
 
 ```
 
-The main serializer BookSerializer has four sub serializers that provide additional objects from the different database models, namely book numbers with the ISBN, characters and authors.
-Book numbers have a1:1 relationship with the book db.  Characters may appear in different books by the dame author, so from a 1:many relationships with the book db.  Authors may write several books, so will have a many : many relationship with the book db.
+The main serializer BookSerializer has four pre-serializers that provide additional objects from the different database models, namely book numbers with the ISBN, character and author objects.
+
+The book numbers have a 1:1 relationship with the book db.  Characters may appear in different books by the dame author, so from a 1:many relationships with the book db.  Authors may write several books, so will have a many : many relationship with the book db.
 
 ```python
 
