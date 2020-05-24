@@ -74,7 +74,64 @@ The [Django Rest framework](https://www.django-rest-framework.org/) contains rea
 Tools used from the framework are:
 
 1. Web browsable API
-2. Serialization
+2. Authentication
+3. Serialization
+   
+
+Installed apps: 
+
+```python
+
+INSTALLED_APPS = [
+    # installed apps
+    'rest_framework',
+    'rest_framework.authtoken',
+    'demo',
+]
+
+```
+
+Adding the auth parameters for the rest framework:
+(see official [Django docs](https://www.django-rest-framework.org/api-guide/authentication/))
+
+```python
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
+
+```
+
+Once the above changes have been made to the settings file, one will notice that trying to access the API will now be restricted. This is because Django now requires a user specific authentication token.  
+
+NB See [Setting the permission policy](https://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy)
+
+![Restricted access to API](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-1.png "RAuth token required for access to API")
+
+To pass the auth token the url pattern Django has to obtain the token from the rest framework.  The token is generated from the authenticated user.  In this case you, the admin.  However a token hasn't been generated for you yet.  
+
+```python
+
+from django.contrib import admin
+from django.urls import path, include
+from rest_framework.authtoken.views import obtain_auth_token
+
+urlpatterns = [
+    path('demo/', include('demo.urls')),
+    path('admin/', admin.site.urls),
+    path('auth/', obtain_auth_token)
+]
+
+```
+
+![Token](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-2.png "To gain access to adding a token")
+
+To generated at token for the admin user, use the token menu to create a new token then add the admin, yourself to the token.
+
+![Token added](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/auth-3.png "A token is added to your name")
+
 
 ### Web browsable API
 
@@ -172,6 +229,10 @@ Vary: Accept
 ]
 
 ```
+
+### Authentication
+
+
 
 ### Serialization
 
