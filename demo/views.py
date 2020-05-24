@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .serializers import BookSerializer
+from .serializers import BookSerializer, MiniBookSerializer
 from .models import Book
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # crate a builtin view using viewsets
 class BookViewSet(viewsets.ModelViewSet):
-    serializer_class = BookSerializer  # from class defined in serializer.py
+    serializer_class = MiniBookSerializer  # from class defined in serializer.py
     queryset = Book.objects.all()
     #  insure the TokenAuthentication is treated as a tuple by
     # adding a comma
