@@ -32,3 +32,10 @@ class BookSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description',
                   'price', 'published', 'is_published',
                   'number', 'characters', 'authors']
+
+
+class MiniBookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        # specify the fields available from serializer
+        fields = ['id', 'title']
