@@ -39,3 +39,7 @@ admin.site.register(Author)
 The Django app being used is managed from the admin interface.  To do so, all the relevant data fields were made available by registering them directly in the admin.
 
 ![Admin](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-1.png "Demo from admin")
+
+Selecting books, demonstrates the separated tables registered in the admin above.
+
+![Admin](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-2.png "Books from admin")
