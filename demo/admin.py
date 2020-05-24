@@ -11,7 +11,7 @@ from .models import Book, BookNumber, Character, Author
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     # fields = ['title', 'description']
-    list_display = ['title', 'title', 'price']
+    list_display = ['title', 'number', 'price']
     list_filter = ['published']
     search_fields = ['title', 'description']
 
