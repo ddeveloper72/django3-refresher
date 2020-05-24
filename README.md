@@ -14,7 +14,28 @@ The demonstration also uses secure tokens to facilitate user authentication betw
 - Using Postman to send and receive data from a frontend environment to Django
 - Using authentication tokens to enable Django and postman to pass data securely
 
+### Code snippets
+
+``` python
+
+from django.contrib import admin
+from .models import Book, BookNumber, Character, Author
 
 
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    # fields = ['title', 'description']
+    list_display = ['title', 'title', 'price']
+    list_filter = ['published']
+    search_fields = ['title', 'description']
 
-![Welcome](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/django.png "Work in progress!")
+
+admin.site.register(BookNumber)
+admin.site.register(Character)
+admin.site.register(Author)
+
+```
+
+The Django app being used is managed from the admin interface.  To do so, all the relevant data fields were made available by registering them directly in the admin.
+
+![Admin](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-1.png "Demo from admin")
