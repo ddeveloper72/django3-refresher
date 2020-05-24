@@ -50,3 +50,6 @@ class Author(models.Model):
     surname = models.CharField(max_length=30)
     books = models.ManyToManyField(Book,
                                    related_name='authors')
+
+    def __str__(self):
+        return self.name + ' ' + self.surname
