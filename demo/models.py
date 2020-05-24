@@ -42,6 +42,9 @@ class Character(models.Model):
                              on_delete=models.CASCADE,
                              related_name='characters')
 
+    def __str__(self):
+        return self.name
+
 class Author(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
