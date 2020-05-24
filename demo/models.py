@@ -7,6 +7,9 @@ class BookNumber(models.Model):
     isbn_10 = models.CharField(max_length=10, blank=True)
     isbn_13 = models.CharField(max_length=13, blank=True)
 
+    def __str__(self):
+        return 'ISBN 10:' + ' ' + self.isbn_10 + ' - ' + 'ISBN 13:' + ' ' + self.isbn_13
+
 
 class Book(models.Model):
     title = models.CharField(blank=False,
