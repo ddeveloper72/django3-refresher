@@ -43,3 +43,24 @@ The Django app being used is managed from the admin interface.  To do so, all th
 Selecting books, demonstrates the separated tables registered in the admin above.
 
 ![Admin](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-2.png "Books from admin")
+
+### Showing object in admin as a string
+
+```python
+
+class Character(models.Model):
+    name = models.CharField(max_length=30)
+    book = models.ForeignKey(Book,
+                             on_delete=models.CASCADE,
+                             related_name='characters')
+    # convert object to string
+    def __str__(self):
+        return self.name
+
+```
+
+The character name uses a 1:many relationship to the Book table.  i.e the same character may appear in several books- one to many.  Here the characters are also converted from an object to a string so we see the actual character name.
+
+![Characters as string](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-3.png "Character objects converted to string")
+
+![Characters as objects](https://github.com/ddeveloper72/django3-refresher/blob/master/static/img/admin-4.png "Character objects prior conversion to string")
